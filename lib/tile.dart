@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'mycolor.dart';
+import 'support/supports.dart';
 
 class Tile extends StatefulWidget {
   final String number;
@@ -21,11 +21,7 @@ class _TileState extends State<Tile> {
       child: Center(
         child: Text(
           widget.number,
-          style: TextStyle(
-            fontSize: widget.size,
-            fontWeight: FontWeight.bold,
-            color: Color(MyColor.fontColorTwoFour),
-          ),
+          style: MyFonts.tile(widget.size),
         ),
       ),
       width: widget.width,

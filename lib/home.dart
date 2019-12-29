@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'mycolor.dart';
+import 'support/supports.dart';
 import 'tile.dart';
 import 'grid.dart';
 import 'game.dart';
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: Text(
           '2048',
-          style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+          style: MyFonts.appBar,
         ),
         backgroundColor: Color(MyColor.gridBackground),
       ),
@@ -211,22 +211,14 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.only(top: 10.0, bottom: 2.0),
                         child: Text(
                           'Score',
-                          style: TextStyle(
-                            fontSize: 15.0,
-                            color: Colors.white70,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: MyFonts.currentScore,
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(bottom: 10.0),
                         child: Text(
                           '$score',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: MyFonts.bestScore,
                         ),
                       )
                     ],
@@ -272,11 +264,7 @@ class _HomePageState extends State<HomePage> {
                             child: Center(
                               child: Text(
                                 'Game over!',
-                                style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(MyColor.gridBackground),
-                                ),
+                                style: MyFonts.gameEnd,
                               ),
                             ),
                           )
@@ -288,11 +276,7 @@ class _HomePageState extends State<HomePage> {
                             child: Center(
                               child: Text(
                                 'You Won!',
-                                style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(MyColor.gridBackground),
-                                ),
+                                style: MyFonts.gameEnd
                               ),
                             ),
                           )
@@ -344,10 +328,7 @@ class _HomePageState extends State<HomePage> {
                           children: <Widget>[
                             Text(
                               'High Score',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: MyFonts.highScore,
                             ),
                             FutureBuilder<String>(
                               future: getHighScore(),
@@ -355,18 +336,12 @@ class _HomePageState extends State<HomePage> {
                                 if (snapshot.hasData) {
                                   return Text(
                                     snapshot.data,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    style: MyFonts.score,
                                   );
                                 } else {
                                   return Text(
                                     '0',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    style: MyFonts.score,
                                   );
                                 }
                               },
